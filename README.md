@@ -4,7 +4,7 @@
 
 **A production-ready REST API built with Node.js, Express & MongoDB**
 
-[![Live API](https://img.shields.io/badge/🚀_Live_API-Render-46E3B7?style=for-the-badge)](https://notes-app-assignment-03.onrender.com)
+[![Live API](https://img.shields.io/badge/🚀_Live_API-Render-46E3B7?style=for-the-badge)](https://notes-app-assignment-03.onrender.com/api/notes)
 [![Postman Docs](https://img.shields.io/badge/📬_Postman-Docs-FF6C37?style=for-the-badge)](https://documenter.getpostman.com/view/50839274/2sBXqJKgFh)
 [![GitHub Repo](https://img.shields.io/badge/💻_GitHub-Repository-181717?style=for-the-badge)](https://github.com/Priyankkhatri/notes-app-assignment-03)
 
@@ -16,7 +16,7 @@
 
 | Resource | Link |
 |---|---|
-| 🚀 Live Backend | [https://notes-app-assignment-03.onrender.com](https://notes-app-assignment-03.onrender.com) |
+| 🚀 Live Backend | [https://notes-app-assignment-03.onrender.com](https://notes-app-assignment-03.onrender.com/api/notes) |
 | 📬 Postman Docs | [View Collection](https://documenter.getpostman.com/view/50839274/2sBXqJKgFh) |
 | 💻 GitHub Repo | [notes-app-assignment-03](https://github.com/Priyankkhatri/notes-app-assignment-03) |
 
