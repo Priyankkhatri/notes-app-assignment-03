@@ -9,12 +9,14 @@ const {
   deleteNote,
   deleteBulkNotes,
   searchByTitle,
+  searchByContent,
 } = require("../controllers/note.controller");
 
 const router = express.Router();
 
 router.post("/bulk", createBulkNotes);
 router.delete("/bulk", deleteBulkNotes);
+router.get("/search/content", searchByContent);
 router.get("/search", searchByTitle);
 router.post("/", createNote);
 router.get("/", getAllNotes);
