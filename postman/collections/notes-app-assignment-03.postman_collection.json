@@ -1,0 +1,343 @@
+{
+  "info": {
+    "_postman_id": "7c7bfe1c-0f97-4dcc-a5db-15dd41057f67",
+    "name": "Notes App Assignment 03",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "noteId",
+      "value": ""
+    },
+    {
+      "key": "deleteNoteId",
+      "value": ""
+    },
+    {
+      "key": "bulkDeleteId1",
+      "value": ""
+    },
+    {
+      "key": "bulkDeleteId2",
+      "value": ""
+    },
+    {
+      "key": "searchQuery",
+      "value": "meeting"
+    }
+  ],
+  "item": [
+    {
+      "name": "POST /api/notes",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Team standup agenda\",\n  \"content\": \"Discuss sprint blockers and deployment plan\",\n  \"category\": \"work\",\n  \"isPinned\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notes",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes"]
+        }
+      }
+    },
+    {
+      "name": "POST /api/notes/bulk",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"notes\": [\n    { \"title\": \"Note one\", \"content\": \"Content one\", \"category\": \"work\" },\n    { \"title\": \"Note two\", \"content\": \"Content two\", \"category\": \"study\" },\n    { \"title\": \"Note three\", \"content\": \"Content three\", \"category\": \"personal\" }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/bulk",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "bulk"]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes"]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/:id",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/{{noteId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      }
+    },
+    {
+      "name": "PUT /api/notes/:id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Completely new title\",\n  \"content\": \"Completely new content\",\n  \"category\": \"personal\",\n  \"isPinned\": false\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/{{noteId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      }
+    },
+    {
+      "name": "PATCH /api/notes/:id",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isPinned\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/{{noteId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "{{noteId}}"]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/notes/:id",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/{{deleteNoteId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "{{deleteNoteId}}"]
+        }
+      }
+    },
+    {
+      "name": "DELETE /api/notes/bulk",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ids\": [\n    \"{{bulkDeleteId1}}\",\n    \"{{bulkDeleteId2}}\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/bulk",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "bulk"]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/search",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/search?q={{searchQuery}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "search"],
+          "query": [
+            {
+              "key": "q",
+              "value": "{{searchQuery}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/search/content",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/search/content?q=deployment",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "search", "content"],
+          "query": [
+            {
+              "key": "q",
+              "value": "deployment"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/search/all",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/search/all?q=react",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "search", "all"],
+          "query": [
+            {
+              "key": "q",
+              "value": "react"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/filter-sort",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/filter-sort?category=work&sortBy=title&order=asc",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "filter-sort"],
+          "query": [
+            { "key": "category", "value": "work" },
+            { "key": "sortBy", "value": "title" },
+            { "key": "order", "value": "asc" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/filter-paginate",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/filter-paginate?category=work&page=1&limit=3",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "filter-paginate"],
+          "query": [
+            { "key": "category", "value": "work" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "3" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/sort-paginate",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/sort-paginate?sortBy=title&order=asc&page=1&limit=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "sort-paginate"],
+          "query": [
+            { "key": "sortBy", "value": "title" },
+            { "key": "order", "value": "asc" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/search-filter",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/search-filter?q=meeting&category=work",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "search-filter"],
+          "query": [
+            { "key": "q", "value": "meeting" },
+            { "key": "category", "value": "work" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/search-sort-paginate",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/search-sort-paginate?q=node&sortBy=title&order=asc&page=1&limit=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "search-sort-paginate"],
+          "query": [
+            { "key": "q", "value": "node" },
+            { "key": "sortBy", "value": "title" },
+            { "key": "order", "value": "asc" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/filter-sort-paginate",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/filter-sort-paginate?category=work&sortBy=title&order=asc&page=1&limit=3",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "filter-sort-paginate"],
+          "query": [
+            { "key": "category", "value": "work" },
+            { "key": "sortBy", "value": "title" },
+            { "key": "order", "value": "asc" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "3" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notes/query",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/notes/query?q=meeting&category=work&sortBy=createdAt&order=desc&page=1&limit=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notes", "query"],
+          "query": [
+            { "key": "q", "value": "meeting" },
+            { "key": "category", "value": "work" },
+            { "key": "sortBy", "value": "createdAt" },
+            { "key": "order", "value": "desc" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    }
+  ]
+}
