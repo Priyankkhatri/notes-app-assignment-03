@@ -273,6 +273,30 @@ const deleteNote = async (req, res) => {
   }
 };
 
+const deleteBulkNotes = async (req, res) => {
+  try {
+    const { ids } = req.body;
+
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "ids array is required and cannot be empty",
+        data: null,
+      });
+    }
+
+    const result = await Note.deleteMany({ _id: { $in: ids } });
+
+    return res.status(200).json({
+      success: true,
+      message: `${result.deletedCount} notes deleted successfully`,
+      data: null,
+    });
+  } catch (error) {
+    return sendServerError(res, error);
+  }
+};
+
 module.exports = {
   allowedSortFields,
   sendServerError,
@@ -288,4 +312,5 @@ module.exports = {
   replaceNote,
   updateNote,
   deleteNote,
+  deleteBulkNotes,
 };
