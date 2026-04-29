@@ -7,7 +7,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:5000"
+      "value": "https://notes-app-assignment-03.onrender.com"
     },
     {
       "key": "noteId",
@@ -47,10 +47,16 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/notes",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes"
+          ]
         }
-      }
+      },
+      "id": "45f16517-9e5f-4cf0-b6d4-37a7b8fe928f"
     },
     {
       "name": "POST /api/notes/bulk",
@@ -68,10 +74,17 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/notes/bulk",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "bulk"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "bulk"
+          ]
         }
-      }
+      },
+      "id": "0b945b13-e3c6-49ec-b44d-355c5f540cba"
     },
     {
       "name": "GET /api/notes",
@@ -79,10 +92,16 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes"
+          ]
         }
-      }
+      },
+      "id": "5420717f-393d-431a-97d9-97db91b21519"
     },
     {
       "name": "GET /api/notes/:id",
@@ -90,10 +109,17 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/{{noteId}}",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "{{noteId}}"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "{{noteId}}"
+          ]
         }
-      }
+      },
+      "id": "d9bb3d2e-83fa-4f30-bb9d-54376237ae73"
     },
     {
       "name": "PUT /api/notes/:id",
@@ -111,10 +137,17 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/notes/{{noteId}}",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "{{noteId}}"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "{{noteId}}"
+          ]
         }
-      }
+      },
+      "id": "0606c0a3-e0b9-461c-913d-2eba7e972572"
     },
     {
       "name": "PATCH /api/notes/:id",
@@ -132,10 +165,17 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/notes/{{noteId}}",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "{{noteId}}"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "{{noteId}}"
+          ]
         }
-      }
+      },
+      "id": "34c11c52-b2af-48fe-823d-a926847b63ca"
     },
     {
       "name": "DELETE /api/notes/:id",
@@ -143,10 +183,17 @@
         "method": "DELETE",
         "url": {
           "raw": "{{baseUrl}}/api/notes/{{deleteNoteId}}",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "{{deleteNoteId}}"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "{{deleteNoteId}}"
+          ]
         }
-      }
+      },
+      "id": "16c55703-a6df-4e99-8eb3-f90dcc2d8820"
     },
     {
       "name": "DELETE /api/notes/bulk",
@@ -164,10 +211,17 @@
         },
         "url": {
           "raw": "{{baseUrl}}/api/notes/bulk",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "bulk"]
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "bulk"
+          ]
         }
-      }
+      },
+      "id": "239b3949-922d-43b9-b8d2-5bf1a93936f2"
     },
     {
       "name": "GET /api/notes/search",
@@ -175,8 +229,14 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/search?q={{searchQuery}}",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "search"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "search"
+          ],
           "query": [
             {
               "key": "q",
@@ -184,7 +244,8 @@
             }
           ]
         }
-      }
+      },
+      "id": "81e6e7ab-5a2d-4907-ad1c-672962ce4736"
     },
     {
       "name": "GET /api/notes/search/content",
@@ -192,8 +253,15 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/search/content?q=deployment",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "search", "content"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "search",
+            "content"
+          ],
           "query": [
             {
               "key": "q",
@@ -201,7 +269,8 @@
             }
           ]
         }
-      }
+      },
+      "id": "4b5d3d19-aaca-4663-b198-c7c895eb1fe0"
     },
     {
       "name": "GET /api/notes/search/all",
@@ -209,8 +278,15 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/search/all?q=react",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "search", "all"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "search",
+            "all"
+          ],
           "query": [
             {
               "key": "q",
@@ -218,7 +294,8 @@
             }
           ]
         }
-      }
+      },
+      "id": "f2e8a1fb-80df-4fee-90ac-ffbb22b5bbda"
     },
     {
       "name": "GET /api/notes/filter-sort",
@@ -226,15 +303,31 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/filter-sort?category=work&sortBy=title&order=asc",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "filter-sort"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "filter-sort"
+          ],
           "query": [
-            { "key": "category", "value": "work" },
-            { "key": "sortBy", "value": "title" },
-            { "key": "order", "value": "asc" }
+            {
+              "key": "category",
+              "value": "work"
+            },
+            {
+              "key": "sortBy",
+              "value": "title"
+            },
+            {
+              "key": "order",
+              "value": "asc"
+            }
           ]
         }
-      }
+      },
+      "id": "68e89f6a-7f5f-4eda-aaa0-6e22f6c78213"
     },
     {
       "name": "GET /api/notes/filter-paginate",
@@ -242,15 +335,31 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/filter-paginate?category=work&page=1&limit=3",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "filter-paginate"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "filter-paginate"
+          ],
           "query": [
-            { "key": "category", "value": "work" },
-            { "key": "page", "value": "1" },
-            { "key": "limit", "value": "3" }
+            {
+              "key": "category",
+              "value": "work"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "3"
+            }
           ]
         }
-      }
+      },
+      "id": "9b633e6a-0be3-4cdf-aed9-da62f8d35583"
     },
     {
       "name": "GET /api/notes/sort-paginate",
@@ -258,16 +367,35 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/sort-paginate?sortBy=title&order=asc&page=1&limit=5",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "sort-paginate"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "sort-paginate"
+          ],
           "query": [
-            { "key": "sortBy", "value": "title" },
-            { "key": "order", "value": "asc" },
-            { "key": "page", "value": "1" },
-            { "key": "limit", "value": "5" }
+            {
+              "key": "sortBy",
+              "value": "title"
+            },
+            {
+              "key": "order",
+              "value": "asc"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
           ]
         }
-      }
+      },
+      "id": "94dd2eed-1ea2-4bfc-8d7e-c2893626add5"
     },
     {
       "name": "GET /api/notes/search-filter",
@@ -275,14 +403,27 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/search-filter?q=meeting&category=work",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "search-filter"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "search-filter"
+          ],
           "query": [
-            { "key": "q", "value": "meeting" },
-            { "key": "category", "value": "work" }
+            {
+              "key": "q",
+              "value": "meeting"
+            },
+            {
+              "key": "category",
+              "value": "work"
+            }
           ]
         }
-      }
+      },
+      "id": "5d3014de-0abb-463c-836d-7aa4cb7d0953"
     },
     {
       "name": "GET /api/notes/search-sort-paginate",
@@ -290,17 +431,39 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/search-sort-paginate?q=node&sortBy=title&order=asc&page=1&limit=5",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "search-sort-paginate"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "search-sort-paginate"
+          ],
           "query": [
-            { "key": "q", "value": "node" },
-            { "key": "sortBy", "value": "title" },
-            { "key": "order", "value": "asc" },
-            { "key": "page", "value": "1" },
-            { "key": "limit", "value": "5" }
+            {
+              "key": "q",
+              "value": "node"
+            },
+            {
+              "key": "sortBy",
+              "value": "title"
+            },
+            {
+              "key": "order",
+              "value": "asc"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
           ]
         }
-      }
+      },
+      "id": "46b1cfff-4c56-4a1a-be04-61fa5ca00bf7"
     },
     {
       "name": "GET /api/notes/filter-sort-paginate",
@@ -308,17 +471,39 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/filter-sort-paginate?category=work&sortBy=title&order=asc&page=1&limit=3",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "filter-sort-paginate"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "filter-sort-paginate"
+          ],
           "query": [
-            { "key": "category", "value": "work" },
-            { "key": "sortBy", "value": "title" },
-            { "key": "order", "value": "asc" },
-            { "key": "page", "value": "1" },
-            { "key": "limit", "value": "3" }
+            {
+              "key": "category",
+              "value": "work"
+            },
+            {
+              "key": "sortBy",
+              "value": "title"
+            },
+            {
+              "key": "order",
+              "value": "asc"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "3"
+            }
           ]
         }
-      }
+      },
+      "id": "255134b4-112a-462f-8868-509c9ed23fcb"
     },
     {
       "name": "GET /api/notes/query",
@@ -326,18 +511,43 @@
         "method": "GET",
         "url": {
           "raw": "{{baseUrl}}/api/notes/query?q=meeting&category=work&sortBy=createdAt&order=desc&page=1&limit=5",
-          "host": ["{{baseUrl}}"],
-          "path": ["api", "notes", "query"],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notes",
+            "query"
+          ],
           "query": [
-            { "key": "q", "value": "meeting" },
-            { "key": "category", "value": "work" },
-            { "key": "sortBy", "value": "createdAt" },
-            { "key": "order", "value": "desc" },
-            { "key": "page", "value": "1" },
-            { "key": "limit", "value": "5" }
+            {
+              "key": "q",
+              "value": "meeting"
+            },
+            {
+              "key": "category",
+              "value": "work"
+            },
+            {
+              "key": "sortBy",
+              "value": "createdAt"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
           ]
         }
-      }
+      },
+      "id": "bf36aace-d84c-4d4c-91ae-14f6774a94a3"
     }
   ]
 }
