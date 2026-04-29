@@ -430,6 +430,31 @@ const sortAndPaginate = async (req, res) => {
   }
 };
 
+const searchAndFilter = async (req, res) => {
+  try {
+    const { q, category, isPinned } = req.query;
+
+    if (!q) {
+      return res.status(400).json({
+        success: false,
+        message: "Search query 'q' is required",
+        data: null,
+      });
+    }
+
+    const notes = await Note.find(buildFilter({ q, category, isPinned }));
+
+    return res.status(200).json({
+      success: true,
+      message: `Search results for: ${q}`,
+      count: notes.length,
+      data: notes,
+    });
+  } catch (error) {
+    return sendServerError(res, error);
+  }
+};
+
 module.exports = {
   allowedSortFields,
   sendServerError,
@@ -452,4 +477,5 @@ module.exports = {
   filterAndSort,
   filterAndPaginate,
   sortAndPaginate,
+  searchAndFilter,
 };
