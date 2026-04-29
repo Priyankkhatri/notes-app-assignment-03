@@ -347,6 +347,31 @@ const searchByContent = async (req, res) => {
   }
 };
 
+const searchAll = async (req, res) => {
+  try {
+    const { q } = req.query;
+
+    if (!q) {
+      return res.status(400).json({
+        success: false,
+        message: "Search query 'q' is required",
+        data: null,
+      });
+    }
+
+    const notes = await Note.find(buildFilter({ q }));
+
+    return res.status(200).json({
+      success: true,
+      message: `Search results for: ${q}`,
+      count: notes.length,
+      data: notes,
+    });
+  } catch (error) {
+    return sendServerError(res, error);
+  }
+};
+
 module.exports = {
   allowedSortFields,
   sendServerError,
@@ -365,4 +390,5 @@ module.exports = {
   deleteBulkNotes,
   searchByTitle,
   searchByContent,
+  searchAll,
 };
