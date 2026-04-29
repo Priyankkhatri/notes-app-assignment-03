@@ -1,63 +1,86 @@
-# Notes App Assignment 03
+<div align="center">
 
-A backend API built from scratch for **Backend with Node.js - Assignment 03**.
+# 📝 Notes App — Assignment 03
 
-This project implements:
+**A production-ready REST API built with Node.js, Express & MongoDB**
 
-- REST API with Express and MongoDB
-- Full CRUD for notes
-- Search using MongoDB `$regex`
-- Combined query APIs for filter, sort, and pagination
-- One master query endpoint that supports everything together
+[![Live API](https://img.shields.io/badge/🚀_Live_API-Render-46E3B7?style=for-the-badge)](https://notes-app-assignment-03.onrender.com)
+[![Postman Docs](https://img.shields.io/badge/📬_Postman-Docs-FF6C37?style=for-the-badge)](https://documenter.getpostman.com/view/50839274/2sBXqJKgFh)
+[![GitHub Repo](https://img.shields.io/badge/💻_GitHub-Repository-181717?style=for-the-badge)](https://github.com/Priyankkhatri/notes-app-assignment-03)
 
-## Live Links
+</div>
 
-- GitHub Repository: [notes-app-assignment-03](https://github.com/Priyankkhatri/notes-app-assignment-03)
-- Live Backend: [https://notes-app-assignment-03.onrender.com](https://notes-app-assignment-03.onrender.com)
-- Postman Documentation: [View Collection Docs](https://documenter.getpostman.com/view/50839274/2sBXqJKgFh)
+---
 
-## Tech Stack
+## 🔗 Quick Links
 
-- Node.js
-- Express
-- MongoDB Atlas
-- Mongoose
-- dotenv
+| Resource | Link |
+|---|---|
+| 🚀 Live Backend | [https://notes-app-assignment-03.onrender.com](https://notes-app-assignment-03.onrender.com) |
+| 📬 Postman Docs | [View Collection](https://documenter.getpostman.com/view/50839274/2sBXqJKgFh) |
+| 💻 GitHub Repo | [notes-app-assignment-03](https://github.com/Priyankkhatri/notes-app-assignment-03) |
 
-## Project Structure
+---
 
-```text
+## ✨ Features
+
+- **Full CRUD** — Create, read, update, and delete notes
+- **Search** — Title, content, and combined full-text search via MongoDB `$regex`
+- **Filter & Sort** — Query by category, pin status, and sort by any field
+- **Pagination** — Offset-based pagination on all list endpoints
+- **Master Query Endpoint** — One endpoint that handles search + filter + sort + pagination together
+- **Consistent Response Format** — Every endpoint returns `success`, `message`, and `data`
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Runtime | Node.js |
+| Framework | Express |
+| Database | MongoDB Atlas |
+| ODM | Mongoose |
+| Config | dotenv |
+| Deployment | Render |
+
+---
+
+## 📁 Project Structure
+
+```
 notes-app/
-|
-|-- src/
-|   |-- config/
-|   |   `-- db.js
-|   |-- models/
-|   |   `-- note.model.js
-|   |-- controllers/
-|   |   `-- note.controller.js
-|   |-- routes/
-|   |   `-- note.routes.js
-|   |-- middlewares/
-|   |-- app.js
-|   `-- index.js
-|
-|-- postman/
-|   `-- collections/
-|       `-- notes-app-assignment-03.postman_collection.json
-|-- .env
-|-- .env.example
-|-- package.json
-`-- README.md
+├── src/
+│   ├── config/
+│   │   └── db.js                  # MongoDB connection
+│   ├── models/
+│   │   └── note.model.js          # Mongoose schema
+│   ├── controllers/
+│   │   └── note.controller.js     # Business logic
+│   ├── routes/
+│   │   └── note.routes.js         # Route definitions
+│   ├── middlewares/               # Custom middleware
+│   ├── app.js                     # Express app setup
+│   └── index.js                   # Server entry point
+│
+├── postman/
+│   └── collections/
+│       └── notes-app-assignment-03.postman_collection.json
+│
+├── .env.example
+├── package.json
+└── README.md
 ```
 
-## Note Schema
+---
+
+## 🗂️ Note Schema
 
 ```js
 const noteSchema = new mongoose.Schema(
   {
-    title: { type: String, required: [true, "Title is required"] },
-    content: { type: String, required: [true, "Content is required"] },
+    title:    { type: String, required: [true, "Title is required"] },
+    content:  { type: String, required: [true, "Content is required"] },
     category: {
       type: String,
       enum: ["work", "personal", "study"],
@@ -69,67 +92,84 @@ const noteSchema = new mongoose.Schema(
 );
 ```
 
-## API Endpoints
+---
+
+## 📡 API Endpoints
 
 ### CRUD
 
-- `POST /api/notes`
-- `POST /api/notes/bulk`
-- `GET /api/notes`
-- `GET /api/notes/:id`
-- `PUT /api/notes/:id`
-- `PATCH /api/notes/:id`
-- `DELETE /api/notes/:id`
-- `DELETE /api/notes/bulk`
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/notes` | Create a single note |
+| `POST` | `/api/notes/bulk` | Create multiple notes |
+| `GET` | `/api/notes` | Get all notes |
+| `GET` | `/api/notes/:id` | Get a note by ID |
+| `PUT` | `/api/notes/:id` | Replace a note |
+| `PATCH` | `/api/notes/:id` | Partially update a note |
+| `DELETE` | `/api/notes/:id` | Delete a note |
+| `DELETE` | `/api/notes/bulk` | Delete multiple notes |
 
 ### Search
 
-- `GET /api/notes/search`
-- `GET /api/notes/search/content`
-- `GET /api/notes/search/all`
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/notes/search` | Search by title |
+| `GET` | `/api/notes/search/content` | Search by content |
+| `GET` | `/api/notes/search/all` | Search across title & content |
 
 ### Combined Queries
 
-- `GET /api/notes/filter-sort`
-- `GET /api/notes/filter-paginate`
-- `GET /api/notes/sort-paginate`
-- `GET /api/notes/search-filter`
-- `GET /api/notes/search-sort-paginate`
-- `GET /api/notes/filter-sort-paginate`
-- `GET /api/notes/query`
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/notes/filter-sort` | Filter + sort |
+| `GET` | `/api/notes/filter-paginate` | Filter + paginate |
+| `GET` | `/api/notes/sort-paginate` | Sort + paginate |
+| `GET` | `/api/notes/search-filter` | Search + filter |
+| `GET` | `/api/notes/search-sort-paginate` | Search + sort + paginate |
+| `GET` | `/api/notes/filter-sort-paginate` | Filter + sort + paginate |
+| `GET` | `/api/notes/query` | ⭐ Master endpoint — everything together |
 
-## Environment Variables
+---
 
-Create a `.env` file:
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory:
 
 ```env
 MONGO_URI=your_mongodb_connection_string_here
 PORT=5000
 ```
 
-## Run Locally
+> Copy `.env.example` as a starting point.
+
+---
+
+## 🚀 Run Locally
 
 ```bash
+# Clone the repository
+git clone https://github.com/Priyankkhatri/notes-app-assignment-03.git
+cd notes-app-assignment-03
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-Server runs at:
+Server starts at → `http://localhost:5000`
 
-```text
-http://localhost:5000
-```
+---
 
-## Sample Requests
+## 📬 Sample Requests
 
-Create a note:
+**Create a note**
 
 ```http
 POST /api/notes
 Content-Type: application/json
-```
 
-```json
 {
   "title": "Team standup agenda",
   "content": "Discuss sprint blockers and deployment plan",
@@ -138,35 +178,42 @@ Content-Type: application/json
 }
 ```
 
-Master query example:
+**Master query — search, filter, sort & paginate in one call**
 
 ```http
 GET /api/notes/query?q=meeting&category=work&sortBy=createdAt&order=desc&page=1&limit=5
 ```
 
-## Response Format
+---
 
-Every endpoint follows this format:
+## 📦 Response Format
+
+All endpoints return a consistent JSON structure:
 
 ```json
 {
   "success": true,
-  "message": "...",
+  "message": "Notes fetched successfully",
+  "count": 5,
   "data": []
 }
 ```
 
-List endpoints also return `count`, and paginated endpoints return `pagination`.
+> Paginated endpoints additionally return a `pagination` object with `page`, `limit`, and `total`.
 
-## Submission Links
+---
 
-- Repository: [notes-app-assignment-03](https://github.com/Priyankkhatri/notes-app-assignment-03)
-- Postman Docs: [https://documenter.getpostman.com/view/50839274/2sBXqJKgFh](https://documenter.getpostman.com/view/50839274/2sBXqJKgFh)
-- Deployed API: [https://notes-app-assignment-03.onrender.com](https://notes-app-assignment-03.onrender.com)
+## ✅ Submission Checklist
 
-## Status
+- [x] GitHub repository created and pushed
+- [x] Render deployment live
+- [x] Postman documentation published
+- [x] All required assignment endpoints implemented
 
-- GitHub repository created and pushed
-- Render deployment live
-- Postman documentation published
-- All required assignment endpoints implemented
+---
+
+<div align="center">
+
+Made with Node.js
+
+</div>
