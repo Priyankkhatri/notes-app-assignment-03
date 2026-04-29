@@ -372,6 +372,24 @@ const searchAll = async (req, res) => {
   }
 };
 
+const filterAndSort = async (req, res) => {
+  try {
+    const { category, isPinned, sortBy, order } = req.query;
+    const notes = await Note.find(buildFilter({ category, isPinned })).sort(
+      getSortOptions(sortBy, order)
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Notes fetched successfully",
+      count: notes.length,
+      data: notes,
+    });
+  } catch (error) {
+    return sendServerError(res, error);
+  }
+};
+
 module.exports = {
   allowedSortFields,
   sendServerError,
@@ -391,4 +409,5 @@ module.exports = {
   searchByTitle,
   searchByContent,
   searchAll,
+  filterAndSort,
 };

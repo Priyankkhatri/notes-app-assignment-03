@@ -11,6 +11,7 @@ const {
   searchByTitle,
   searchByContent,
   searchAll,
+  filterAndSort,
 } = require("../controllers/note.controller");
 
 const router = express.Router();
@@ -20,6 +21,7 @@ router.delete("/bulk", deleteBulkNotes);
 router.get("/search/content", searchByContent);
 router.get("/search/all", searchAll);
 router.get("/search", searchByTitle);
+router.get("/filter-sort", filterAndSort);
 router.post("/", createNote);
 router.get("/", getAllNotes);
 router.get("/:id", getNoteById);
