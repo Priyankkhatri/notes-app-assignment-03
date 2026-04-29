@@ -13,6 +13,7 @@ const {
   searchAll,
   filterAndSort,
   filterAndPaginate,
+  sortAndPaginate,
 } = require("../controllers/note.controller");
 
 const router = express.Router();
@@ -24,6 +25,7 @@ router.get("/search/all", searchAll);
 router.get("/search", searchByTitle);
 router.get("/filter-sort", filterAndSort);
 router.get("/filter-paginate", filterAndPaginate);
+router.get("/sort-paginate", sortAndPaginate);
 router.post("/", createNote);
 router.get("/", getAllNotes);
 router.get("/:id", getNoteById);

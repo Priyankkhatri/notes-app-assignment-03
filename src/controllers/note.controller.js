@@ -409,6 +409,27 @@ const filterAndPaginate = async (req, res) => {
   }
 };
 
+const sortAndPaginate = async (req, res) => {
+  try {
+    const { sortBy, order, page, limit } = req.query;
+    const { pageNum, limitNum, skip } = getPaginationOptions(page, limit);
+    const total = await Note.countDocuments();
+    const notes = await Note.find()
+      .sort(getSortOptions(sortBy, order))
+      .skip(skip)
+      .limit(limitNum);
+
+    return res.status(200).json({
+      success: true,
+      message: "Notes fetched successfully",
+      data: notes,
+      pagination: buildPagination(total, pageNum, limitNum),
+    });
+  } catch (error) {
+    return sendServerError(res, error);
+  }
+};
+
 module.exports = {
   allowedSortFields,
   sendServerError,
@@ -430,4 +451,5 @@ module.exports = {
   searchAll,
   filterAndSort,
   filterAndPaginate,
+  sortAndPaginate,
 };
